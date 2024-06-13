@@ -7,6 +7,9 @@ const companySchema = new mongoose.Schema({
     email: { type: String, required: true, unique: true },
 });
 
+// Full-text search index
+companySchema.index({ name: 'text', address: 'text' });
+
 const Company = mongoose.model('Company', companySchema);
 
 export default Company;
